@@ -44,6 +44,10 @@ $alert: red; // red
 		font-family: $primary-font;
 	}
 }
+@keyframes move-twink-back {
+	from {background-position:0 0;}
+	to {background-position:-10000px 5000px;}
+}
 // first setion
 .intro {
 	width: 50%;
@@ -86,10 +90,15 @@ header {
   position:absolute;
   border-radius:50%;
   box-shadow: 0 0 60px -20px ($color-4, 0.72);
-  left:35%;
   top:30%;
 	animation: rotatePlanet 150s infinite linear;
-	@keyframes rotatePlanet{
+	
+  
+	
+	
+}
+
+@keyframes rotatePlanet{
   0%{
     transform:rotateZ(0);
   }
@@ -97,5 +106,3 @@ header {
     transform:rotateZ(-360deg);
   }
 }
-}
-
