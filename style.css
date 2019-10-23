@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+/* Typography 
+
+-------------------------------- */
+/* Colors
+-------------------------*/
+.page-wrapper {
+  width: 95%;
+  margin: 0 30px;
+  display: inline-flex;
+  flex-flow: column;
+  background-color: #272727;
+  text-align: center; }
+  .page-wrapper h1, .page-wrapper h2, .page-wrapper h3, .page-wrapper h4, .page-wrapper h5, .page-wrapper h6 {
+    font-family: "Source Code Pro", monospace; }
+  .page-wrapper p {
+    font-family: "Roboto", sans-serif; }
+
+.intro {
+  width: 50%;
+  margin: 0 auto;
+  display: inline-flex;
+  flex-flow: column; }
+
+header {
+  width: 80%;
+  height: auto;
+  color: #e8eef2;
+  margin: 0 auto;
+  padding: 5%;
+  box-shadow: 5px 5px 20px #c7d3dd; }
+  header h1 {
+    font-size: 3.5em; }
+  header h2 {
+    font-size: 1.5em; }
+
+.summary {
+  background-color: #d6c9c9;
+  background-image: linear-gradient(#d6c9c9, #e8eef2);
+  width: 75%;
+  padding: 20px;
+  margin: 6%;
+  text-align: center; }
+  .summary a {
+    color: #77b6ea;
+    text-decoration: none; }
+    .summary a a:active {
+      color: #e8eef2; }
+    .summary a a:hover {
+      color: #d6c9c9; }
+
+.preamble {
+  width: 400px;
+  height: 400px;
+  background-image: linear-gradient(#c7d3dd, #272727, #c7d3dd, #77b6ea, #c7d3dd, #272727, #e8eef2);
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 60px -20px #c7d3dd, 0.72;
+  left: 50%;
+  top: 80%;
+  animation: rotatePlanet 150s infinite linear; }
+@keyframes rotatePlanet {
+  0% {
+    transform: rotateZ(0); }
+  100% {
+    transform: rotateZ(-360deg); } }
+
+/*# sourceMappingURL=style.css.map */

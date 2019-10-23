@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Typography 
+
+-------------------------------- */
+
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Source Code Pro', monospace;
+
+/* Colors
+-------------------------*/
+
+$color-1: #FFFFFF; //  white
+$color-2: #272727; // dark
+$color-3: #d6c9c9; // tan
+$color-4: #c7d3dd; // gray
+$color-5: #77b6ea; // light-blue
+$color-6: #e8eef2; // light-gray
+// additional colors
+
+$success: yellow; // yellow
+$alert: red; // red
+
+
+//body 
+.page-wrapper {
+	width: 95%;
+	margin: 0 30px;
+	display: inline-flex;
+	flex-flow: column;
+	background-color: $color-2;
+	text-align: center;
+	h1,h2,h3, h4,h5, h6 {
+		font-family: $secondary-font;
+	}
+	p{
+		font-family: $primary-font;
+	}
+}
+// first setion
+.intro {
+	width: 50%;
+	margin: 0 auto;
+	display: inline-flex;
+    flex-flow: column;
+}
+header {
+	width: 80%;
+	height: auto;
+	color: $color-6;
+	margin:0 auto;
+	padding: 5%;
+	box-shadow: 5px 5px 20px $color-4;
+	h1{ font-size: 3.5em; 
+	}
+	h2{ font-size: 1.5em;}
+}
+
+.summary{
+	background-color: $color-3;
+	background-image: linear-gradient($color-3,$color-6);
+	width: 75%;
+	padding: 20px;
+	margin: 6%;
+	text-align: center;
+	a {
+		color: $color-5;
+		text-decoration: none;
+		a:active{
+			color: $color-6;}
+		a:hover{
+			color: $color-3;}}
+}
+
+
+.preamble {
+  width:400px;
+  height:400px;
+  background-image:linear-gradient($color-4,$color-2,$color-4,$color-5,$color-4,$color-2,$color-6);
+  position:absolute;
+  border-radius:50%;
+  box-shadow: 0 0 60px -20px ($color-4, 0.72);
+  left:50%;
+  top:80%;
+	animation: rotatePlanet 150s infinite linear;
+	@keyframes rotatePlanet{
+  0%{
+    transform:rotateZ(0);
+  }
+  100%{
+    transform:rotateZ(-360deg);
+  }
+}
+}
+
