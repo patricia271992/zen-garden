@@ -22,18 +22,18 @@ $color-6: #e8eef2; // light-gray
 $success: yellow; // yellow
 $alert: red; // red
 
-
 //body 
 
 #css-zen-garden{
 	z-index: 0;
 	background: #000 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
 	position:absolute;
+	margin: 0 auto;
 }
 .page-wrapper {
 	z-index: 1;
 	background:transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
-	animation: move-twink-back 200s linear infinite;
+	animation: twinkle 200s linear infinite;
 	display: inline-flex;
 	flex-flow: column;
 	text-align: center;
@@ -44,17 +44,12 @@ $alert: red; // red
 		font-family: $primary-font;
 	}
 }
-@keyframes move-twink-back {
+@keyframes twinkle {
 	from {background-position:0 0;}
 	to {background-position:-10000px 5000px;}
 }
 // first setion
-.intro {
-	width: 50%;
-	margin: 0 auto;
-	display: inline-flex;
-    flex-flow: column;
-}
+
 header {
 	width: 80%;
 	height: auto;
@@ -67,7 +62,13 @@ header {
 	h2{ font-size: 1.5em;}
 }
 
-.summary{
+
+.intro {
+	width: 80%;
+	margin: 0 auto;
+	display: inline-flex;
+    flex-flow: column;
+	.summary{
 	background-color: $color-3;
 	background-image: linear-gradient($color-3,$color-6);
 	padding: 20px;
@@ -76,26 +77,42 @@ header {
 	a {
 		color: $color-5;
 		text-decoration: none;
-		a:active{
+		a :active{
 			color: $color-6;}
-		a:hover{
+		a :hover{
 			color: $color-3;}}
 }
-
-
+	//planet size
+	$planet-width: 75vw;
+$planet-height: $planet-width;
 .preamble {
-  width:400px;
-  height:400px;
+  width: $planet-width;
+  height: $planet-height;
+	margin: 0px auto;
   background-image:linear-gradient($color-4,$color-2,$color-4,$color-5,$color-4,$color-2,$color-6);
-  position:absolute;
+	overflow: hide;
   border-radius:50%;
-  box-shadow: 0 0 60px -20px ($color-4, 0.72);
+	padding: 4%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	
+  box-shadow: 0 0 60px -20px ($color-1, 0.72);
   top:30%;
 	animation: rotatePlanet 150s infinite linear;
-	
-  
-	
-	
+	h3{
+		width: auto;
+		position: static;
+	word-wrap: break-word;
+	}
+	p{
+		position: relative;
+		word-wrap: break-word;
+	}
+}
+
 }
 
 @keyframes rotatePlanet{
@@ -105,4 +122,45 @@ header {
   100%{
     transform:rotateZ(-360deg);
   }
+}
+
+.supporting {
+	color: blue;
+	padding: 4%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+@media screen and (min-width: 601px) {
+	
+		.page-wrapper{
+		display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+	}
+	
+	//planet size
+	$planet-width-2: 40vw;
+$planet-height-2: $planet-width-2;
+.preamble {
+  width: $planet-width-2;
+	height: $planet-height-2;}
+	.intro{grid-column: 2/span 1;}
+	.supporting{
+		    grid-column: 3/span1;
+		
+	}
+	.sidebar{
+	
+		    grid-row: 1/span1;
+	}
+	
+}
+@media screen and (min-width:1000px){
+	
+	
 }
