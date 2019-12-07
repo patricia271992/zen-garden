@@ -41,6 +41,7 @@ header {
     font-size: 1.5em; }
 
 .intro {
+  height: 100vh;
   width: 80%;
   margin: 0 auto;
   display: inline-flex;
@@ -50,33 +51,36 @@ header {
     background-image: linear-gradient(#d6c9c9, #e8eef2);
     padding: 20px;
     margin: 6%;
-    text-align: center; }
+    text-align: center;
+    display: none;
+    margin-top: 40px; }
     .intro .summary a {
       color: #77b6ea;
       text-decoration: none; }
-      .intro .summary a a :active {
+      .intro .summary a:active {
         color: #e8eef2; }
-      .intro .summary a a :hover {
+      .intro .summary a:hover {
         color: #d6c9c9; }
   .intro .preamble {
-    width: 75vw;
-    height: 75vw;
+    width: 300px;
+    height: 300px;
     margin: 0px auto;
     background-image: linear-gradient(#c7d3dd, #272727, #c7d3dd, #77b6ea, #c7d3dd, #272727, #e8eef2);
-    overflow: hide;
+    overflow: hidden;
     border-radius: 50%;
-    padding: 4%;
+    padding: 10%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
     text-align: center;
     box-shadow: 0 0 60px -20px #FFFFFF, 0.72;
-    top: 30%;
-    animation: rotatePlanet 150s infinite linear; }
+    top: 30%; }
+    .intro .preamble:before {
+      background-image: linear-gradient(#c7d3dd, #272727, #c7d3dd, #77b6ea, #c7d3dd, #272727, #e8eef2);
+      animation: rotatePlanet 50s infinite linear; }
     .intro .preamble h3 {
-      width: auto;
-      position: static;
+      width: 270px;
+      position: relative;
       word-wrap: break-word; }
     .intro .preamble p {
       position: relative;
@@ -97,14 +101,86 @@ header {
   width: 80%;
   margin: 0 auto; }
 
+.sidebar {
+  color: #FFFFFF; }
+  .sidebar ul li {
+    list-style-type: none; }
+    .sidebar ul li a {
+      color: #FFFFFF;
+      list-style-type: none;
+      text-decoration: none; }
+      .sidebar ul li a:active {
+        color: #77b6ea; }
+      .sidebar ul li a:hover {
+        color: #77b6ea; }
+
+.design-selection, .design-archives, .zen-resources {
+  position: relative;
+  top: -25px;
+  height: 300px;
+  background-image: linear-gradient(0deg, transparent, black 60%);
+  z-index: 1;
+  box-shadow: #c7d3dd 20%;
+  overflow: hiden; }
+
+.select, .archives, .resources {
+  padding: 20px;
+  bacground-color: black;
+  text-transform: uppercase;
+  color: #FFFFFF; }
+  .select:before, .archives:before, .resources:before {
+    background-color: black;
+    position: fixed; }
+
+.design-selection ul {
+  animation: crawl 10s linear infinite;
+  color: #FFFFFF;
+  overflow: hiden; }
+
+.nav {
+  display: flex;
+  justify-content: center;
+  min-heigth: 200px;
+  color: #FFFFFF;
+  font-family: "Source Code Pro", monospace;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify; }
+
+ul {
+  text-decoration: none;
+  list-style-type: none; }
+  ul a {
+    color: #FFFFFF;
+    text-decoration: none; }
+    ul a:active {
+      color: #77b6ea; }
+    ul a:hover {
+      color: #77b6ea; }
+@keyframes crawl {
+  0% {
+    top: 10px;
+    transform: rotateX(0deg) translateZ(0); }
+  100% {
+    top: 30px;
+    transform: rotateX(25deg) translateZ(600px); } }
 @media screen and (min-width: 601px) {
   .page-wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr; }
 
+  .intro {
+    display: flex; }
+    .intro .summary {
+      display: flex;
+      flex-flow: column; }
+
   .preamble {
-    width: 40vw;
-    height: 40vw; }
+    width: 50vw;
+    height: 50vh; }
 
   .intro {
     grid-column: 2/span 1; }

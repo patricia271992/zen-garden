@@ -21,6 +21,9 @@ $color-6: #e8eef2; // light-gray
 
 $success: yellow; // yellow
 $alert: red; // red
+//planet size
+$planet-width: 50vw;
+$planet-height: 50vh;
 
 //body 
 
@@ -64,6 +67,7 @@ header {
 
 
 .intro {
+	height: 100vh;
 	width: 80%;
 	margin: 0 auto;
 	display: inline-flex;
@@ -74,37 +78,36 @@ header {
 	padding: 20px;
 	margin: 6%;
 	text-align: center;
+	display: none;
+	margin-top: 40px;
 	a {
 		color: $color-5;
 		text-decoration: none;
-		a :active{
+		&:active{
 			color: $color-6;}
-		a :hover{
+		&:hover{
 			color: $color-3;}}
 }
-	//planet size
-	$planet-width: 75vw;
-$planet-height: $planet-width;
+	
 .preamble {
-  width: $planet-width;
-  height: $planet-height;
+  width: 300px;
+  height: 300px;
 	margin: 0px auto;
   background-image:linear-gradient($color-4,$color-2,$color-4,$color-5,$color-4,$color-2,$color-6);
-	overflow: hide;
+	overflow: hidden;
   border-radius:50%;
-	padding: 4%;
+	padding: 10%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
 	text-align: center;
-	
+	&:before{background-image:linear-gradient($color-4,$color-2,$color-4,$color-5,$color-4,$color-2,$color-6);
+	animation: rotatePlanet 50s infinite linear;}
   box-shadow: 0 0 60px -20px ($color-1, 0.72);
   top:30%;
-	animation: rotatePlanet 150s infinite linear;
-	h3{
-		width: auto;
-		position: static;
+	
+	h3{width: 270px;
+		position: relative;
 	word-wrap: break-word;
 	}
 	p{
@@ -134,6 +137,88 @@ $planet-height: $planet-width;
 	width: 80%;
 	margin: 0 auto;
 }
+.sidebar {
+	color: $color-1;
+
+	ul li {
+		list-style-type: none;
+	
+  a {
+		color: $color-1;
+	  list-style-type: none;
+		text-decoration: none;
+		   &:active {
+			color: $color-5;}
+		   &:hover{
+      color: $color-5;}}
+  
+	}}
+.design-selection, .design-archives, .zen-resources{
+  position: relative;
+  top: -25px;
+  height: 300px;
+  background-image: linear-gradient(0deg, transparent, black 60%);
+  z-index: 1;
+  box-shadow: $color-4 20%;
+  overflow: hiden;
+  
+}
+.select, .archives, .resources{
+padding: 20px;
+  bacground-color: black;
+  text-transform: uppercase;
+  color:$color-1;
+  &:before{
+    background-color: black;
+    position : fixed;}
+  }
+
+.design-selection{
+  ul{ animation: crawl 10s linear infinite;
+  color:$color-1;
+  overflow: hiden;}
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  min-heigth:200px;
+  color: $color-1;
+  font-family: $secondary-font;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+  
+}
+
+
+ul {
+ text-decoration: none;
+list-style-type: none;
+   a {
+		color: $color-1;
+		text-decoration: none;
+		   &:active {
+			color: $color-5;}
+		   &:hover{
+      color: $color-5;
+     }}
+
+@keyframes crawl {
+    0% {
+    top: 10px;
+    transform: rotateX(0deg)  translateZ(0);
+  }
+  
+    100% { 
+    top: 30px;
+    transform: rotateX(25deg) translateZ(600px);
+  }
+  }}
+
 
 
 @media screen and (min-width: 601px) {
@@ -142,13 +227,18 @@ $planet-height: $planet-width;
 		display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 	}
-	
+	.intro{
+		display: flex;
+		.summary{
+				display: flex;
+			flex-flow: column;
+		}
+	}
 	//planet size
-	$planet-width-2: 40vw;
-$planet-height-2: $planet-width-2;
+	
 .preamble {
-  width: $planet-width-2;
-	height: $planet-height-2;}
+  width: $planet-width;
+	height: $planet-height;}
 	.intro{grid-column: 2/span 1;}
 	.supporting{
 		    grid-column: 3/span1;
