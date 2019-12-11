@@ -34,6 +34,7 @@ $planet-height: 50vh;
 	margin: 0 auto;
 }
 .page-wrapper {
+	height: 100vh;
 	z-index: 1;
 	background:transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
 	animation: twinkle 200s linear infinite;
@@ -67,7 +68,7 @@ header {
 
 
 .intro {
-	height: 100vh;
+
 	width: 80%;
 	margin: 0 auto;
 	display: inline-flex;
@@ -93,42 +94,32 @@ header {
   width: 300px;
   height: 300px;
 	margin: 0px auto;
-  background-image:linear-gradient($color-4,$color-2,$color-4,$color-5,$color-4,$color-2,$color-6);
-	overflow: hidden;
+  background-image:linear-gradient($color-4,$color-5,$color-4,$color-6);
+	overflow: scroll;
   border-radius:50%;
 	padding: 10%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	text-align: center;
-	&:before{background-image:linear-gradient($color-4,$color-2,$color-4,$color-5,$color-4,$color-2,$color-6);
-	animation: rotatePlanet 50s infinite linear;}
   box-shadow: 0 0 60px -20px ($color-1, 0.72);
   top:30%;
+	
 	
 	h3{width: 270px;
 		position: relative;
 	word-wrap: break-word;
+		color: $success;
+		font-size: 1.5em;
 	}
 	p{
 		position: relative;
 		word-wrap: break-word;
-	}
-}
+	}}}
 
-}
-
-@keyframes rotatePlanet{
-  0%{
-    transform:rotateZ(0);
-  }
-  100%{
-    transform:rotateZ(-360deg);
-  }
-}
 
 .supporting {
-	color: blue;
+
 	padding: 4%;
 	flex-direction: column;
 	justify-content: center;
@@ -136,9 +127,31 @@ header {
 	text-align: center;
 	width: 80%;
 	margin: 0 auto;
+	overflow: scroll;
+	animation: crawl 60s linear infinite;
+	h3{width: 270px;
+		text-transform: uppercase;
+		position: relative;
+	word-wrap: break-word;
+		color: $success;
+	}
+	p{
+		position: relative;
+		word-wrap: break-word;
+		color: $color-1;
+	}
+	a {
+		color: $alert;
+	  list-style-type: none;
+		text-decoration: none;
+		   &:active {
+			color: $success;}
+		   &:hover{
+      color: $color-5;}}
 }
 .sidebar {
 	color: $color-1;
+	margin-left: 150px;
 
 	ul li {
 		list-style-type: none;
@@ -157,15 +170,15 @@ header {
   position: relative;
   top: -25px;
   height: 300px;
+	width: 150px;
   background-image: linear-gradient(0deg, transparent, black 60%);
   z-index: 1;
   box-shadow: $color-4 20%;
   overflow: hiden;
   
 }
-.select, .archives, .resources{
+.select, .archives, .resources, .main-supporting {
 padding: 20px;
-  bacground-color: black;
   text-transform: uppercase;
   color:$color-1;
   &:before{
@@ -174,7 +187,7 @@ padding: 20px;
   }
 
 .design-selection{
-  ul{ animation: crawl 10s linear infinite;
+  ul{ 
   color:$color-1;
   overflow: hiden;}
 }
@@ -196,6 +209,7 @@ padding: 20px;
 
 
 ul {
+	padding : 20px;
  text-decoration: none;
 list-style-type: none;
    a {
@@ -205,19 +219,28 @@ list-style-type: none;
 			color: $color-5;}
 		   &:hover{
       color: $color-5;
-     }}
+	   }}}
+	
+	
 
 @keyframes crawl {
     0% {
     top: 10px;
-    transform: rotateX(0deg)  translateZ(0);
+    transform: rotateX(0deg)  translateZ(10px);
   }
-  
+  25%{ 
+    transform: rotateX(25deg) translateZ(550px);
+  }
+	50%{ 
+    transform: rotateX(30deg) translateZ(1100px);
+  }
+	75%{ 
+    transform: rotateX(35deg) translateZ(1650px);
+  }
     100% { 
-    top: 30px;
-    transform: rotateX(25deg) translateZ(600px);
+    transform: rotateX(40deg) translateZ(3000px);
   }
-  }}
+  }
 
 
 
@@ -248,9 +271,5 @@ list-style-type: none;
 	
 		    grid-row: 1/span1;
 	}
-	
-}
-@media screen and (min-width:1000px){
-	
 	
 }
