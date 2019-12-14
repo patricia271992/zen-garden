@@ -21,9 +21,7 @@ $color-6: #e8eef2; // light-gray
 
 $success: yellow; // yellow
 $alert: red; // red
-//planet size
-$planet-width: 50vw;
-$planet-height: 50vh;
+
 
 //body 
 
@@ -34,7 +32,7 @@ $planet-height: 50vh;
 	margin: 0 auto;
 }
 .page-wrapper {
-	height: 100vh;
+	height: 100%;
 	z-index: 1;
 	background:transparent url('https://image.ibb.co/ir1DE8/twinkling.png') repeat top center;
 	animation: twinkle 200s linear infinite;
@@ -93,43 +91,67 @@ header {
 .preamble {
   width: 300px;
   height: 300px;
-	margin: 0px auto;
+	margin: 30px  auto;
   background-image:linear-gradient($color-4,$color-5,$color-4,$color-6);
-	overflow: scroll;
+	overflow: hidden;
   border-radius:50%;
 	padding: 10%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	text-align: center;
-  box-shadow: 0 0 60px -20px ($color-1, 0.72);
-  top:30%;
+  
+ 
+	box-shadow: 5px 5px 20px $color-4;
 	
-	
-	h3{width: 270px;
+	h3{width: 280px;
 		position: relative;
 	word-wrap: break-word;
-		color: $success;
+		text-transform: uppercase;
+		color: black;
+		font-weight: bold;
 		font-size: 1.5em;
+		animation: up 20s linear infinite;
 	}
 	p{
 		position: relative;
 		word-wrap: break-word;
+		
+		animation: up 20s linear infinite;
 	}}}
+@keyframes up {
+    0% {
+    top: 10px;
+    transform: rotateX(0deg)  translateZ(0px);
+  }
 
+  25%{ 
+    transform: rotateX(25deg) translateZ(75px);
+  }
+	50%{ 
+    transform: rotateX(30deg) translateZ(15s0px);
+  }
+	75%{ 
+		transform: rotateX(40deg) translateZ(220px);
+  }
+	
+    100% { 
+    transform: rotateX(40deg) translateZ(220px);
+  }
+  }
 
 .supporting {
-
 	padding: 4%;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	width: 80%;
+	width: 70%;
 	margin: 0 auto;
 	overflow: scroll;
-	animation: crawl 60s linear infinite;
-	h3{width: 270px;
+		box-shadow: 5px 5px 20px $color-4;
+	h3{
+		width: 270px;
 		text-transform: uppercase;
 		position: relative;
 	word-wrap: break-word;
@@ -141,17 +163,18 @@ header {
 		color: $color-1;
 	}
 	a {
-		color: $alert;
+		color: $color-5;
 	  list-style-type: none;
 		text-decoration: none;
 		   &:active {
 			color: $success;}
 		   &:hover{
-      color: $color-5;}}
+      color: $color-6;}}
 }
 .sidebar {
 	color: $color-1;
 	margin-left: 150px;
+	margin-top: 40px;
 
 	ul li {
 		list-style-type: none;
@@ -169,23 +192,17 @@ header {
 .design-selection, .design-archives, .zen-resources{
   position: relative;
   top: -25px;
-  height: 300px;
 	width: 150px;
-  background-image: linear-gradient(0deg, transparent, black 60%);
+  background-image: linear-gradient(0deg, black 60%);
   z-index: 1;
-  box-shadow: $color-4 20%;
   overflow: hiden;
   
 }
 .select, .archives, .resources, .main-supporting {
 padding: 20px;
   text-transform: uppercase;
-  color:$color-1;
-  &:before{
-    background-color: black;
-    position : fixed;}
-  }
-
+	color:$color-1;}
+  
 .design-selection{
   ul{ 
   color:$color-1;
@@ -223,6 +240,31 @@ list-style-type: none;
 	
 	
 
+
+
+
+@media screen and (min-width: 601px) {
+	
+		.page-wrapper{
+		display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+	}
+	.intro{
+		display: flex;
+		.summary{
+				display: flex;
+			flex-flow: column;
+		}
+	}
+
+
+	.intro{grid-column: 2/span 1;}
+	.supporting{
+		    grid-column: 3/span1;
+		border: none;
+		animation: crawl 60s linear infinite;
+	}
+	
 @keyframes crawl {
     0% {
     top: 10px;
@@ -241,35 +283,8 @@ list-style-type: none;
     transform: rotateX(40deg) translateZ(3000px);
   }
   }
-
-
-
-@media screen and (min-width: 601px) {
-	
-		.page-wrapper{
-		display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-	}
-	.intro{
-		display: flex;
-		.summary{
-				display: flex;
-			flex-flow: column;
-		}
-	}
-	//planet size
-	
-.preamble {
-  width: $planet-width;
-	height: $planet-height;}
-	.intro{grid-column: 2/span 1;}
-	.supporting{
-		    grid-column: 3/span1;
-		
-	}
 	.sidebar{
 	
 		    grid-row: 1/span1;
-	}
+	}}
 	
-}
